@@ -38,3 +38,24 @@ hr {
     margin: 0 auto;
     width: 99%;
 }
+
+.backlog,
+.in_progress,
+.completed {
+    color: white;
+    font-size: 0.8em;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.backlog {
+    background-color: red;
+}
+
+.in_progress {
+    background-color: yellow;
+}
+
+.completed {
+    background-color: green;
+}

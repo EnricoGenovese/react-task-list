@@ -9,11 +9,12 @@ import './index.css'
 import tasks from "./data/tasks.js"
 
 function App() {
+
   // logic and functions
   function renderListEl(arr, filter) {
     let filteredArray = arr.filter((elem) => elem.state.includes(filter))
       .map((elem) => <li key={elem.id}>
-        <h3>{elem.title}</h3><span className="badge">{elem.state}</span>
+        <h3>{elem.title}</h3><span className={elem.state}>{elem.state}</span>
         <p>Priority: {elem.priority}</p>
         <p>Est. time: {elem.estimatedTime}</p>
       </li>);
