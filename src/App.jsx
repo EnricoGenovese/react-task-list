@@ -21,6 +21,11 @@ function App() {
     return filteredArray;
   }
 
+  function getLength(arr, filter) {
+    let filteredArray = arr.filter((elem) => elem.state.includes(filter))
+    let arrLength = parseInt(filteredArray.length)
+    return arrLength
+  }
   // function renderBacklog() {
   //   let tasksBacklog = tasks.filter((task) => task.state.includes("backlog"))
   //     .map((task) => <li key={task.id}>
@@ -63,14 +68,14 @@ function App() {
       </header>
       <main>
         <ul id='todo'>
-          <li><h2>Current Tasks</h2></li>
+          <li><h2>Current Tasks ({(getLength(tasks, "backlog") + getLength(tasks, "in_progress"))})</h2></li>
           {renderListEl(tasks, "backlog")}
           {renderListEl(tasks, "in_progress")}
         </ul>
         <br />
         <hr />
         <ul id='done'>
-          <li><h2>Completed Tasks</h2></li>
+          <li><h2>Completed Tasks ({getLength(tasks, "completed")})</h2></li>
           {renderListEl(tasks, "completed")}
         </ul>
       </main>
