@@ -4,15 +4,37 @@
     box-sizing: border-box;
 }
 
+
+
 header {
-    padding: 15px;
+    padding: 15px 0;
     background-color: #7FFFD3;
 }
 
-h1 {
-    margin-left: 10px;
+h1,
+main {
+    margin-left: 15px;
 }
 
-ul {
+h3 {
+    display: inline-block;
+}
+
+ul,
+li {
     list-style-type: none;
+    margin-top: 15px;
+}
+
+.badge {
+    padding: 5px;
+    margin-left: 10px;
+    background-color: #D2691E;
+    color: white;
+    font-size: 0.8em;
+}
+
+hr {
+    margin: 0 auto;
+    width: 99%;
 }
