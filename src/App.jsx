@@ -9,10 +9,9 @@ import './index.css'
 import tasks from "./data/tasks.js"
 
 function App() {
-
   // logic and functions
   function renderListEl(arr, filter) {
-    let filteredArray = arr.filter((elem) => elem.state.includes(filter))
+    const filteredArray = arr.filter((elem) => elem.state.includes(filter))
       .map((elem) => <li key={elem.id}>
         <h3>{elem.title}</h3><span className={elem.state}>{elem.state}</span>
         <p>Priority: {elem.priority}</p>
@@ -23,10 +22,11 @@ function App() {
   }
 
   function getLength(arr, filter) {
-    let filteredArray = arr.filter((elem) => elem.state.includes(filter))
-    let arrLength = parseInt(filteredArray.length)
-    return arrLength
+    const filteredArray = arr.filter((elem) => elem.state.includes(filter))
+    const arrLength = parseInt(filteredArray.length);
+    return arrLength;
   }
+
   // function renderBacklog() {
   //   let tasksBacklog = tasks.filter((task) => task.state.includes("backlog"))
   //     .map((task) => <li key={task.id}>
@@ -48,7 +48,6 @@ function App() {
 
   //   return tasksInProgress;
   // }
-
 
   // function renderCompleted() {
   //   let tasksCompleted = tasks.filter((task) => task.state.includes("completed"))
