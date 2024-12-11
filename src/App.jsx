@@ -10,40 +10,50 @@ import tasks from "./data/tasks.js"
 
 function App() {
   // logic and functions
-
-  function renderBacklog() {
-    let tasksBacklog = tasks.filter((task) => task.state.includes("backlog"))
-      .map((task) => <li key={task.id}>
-        <h3>{task.title}</h3><span className="badge">{task.state}</span>
-        <p>Priority: {task.priority}</p>
-        <p>Est. time: {task.estimatedTime}</p>
+  function renderListEl(arr, filter) {
+    let filteredArray = arr.filter((elem) => elem.state.includes(filter))
+      .map((elem) => <li key={elem.id}>
+        <h3>{elem.title}</h3><span className="badge">{elem.state}</span>
+        <p>Priority: {elem.priority}</p>
+        <p>Est. time: {elem.estimatedTime}</p>
       </li>);
 
-    return tasksBacklog;
+    return filteredArray;
   }
 
-  function renderInProgress() {
-    let tasksInProgress = tasks.filter((task) => task.state.includes("in_progress"))
-      .map((task) => <li key={task.id}>
-        <h3>{task.title}</h3><span className="badge">{task.state}</span>
-        <p>Priority: {task.priority}</p>
-        <p>Est. time: {task.estimatedTime}</p>
-      </li>)
+  // function renderBacklog() {
+  //   let tasksBacklog = tasks.filter((task) => task.state.includes("backlog"))
+  //     .map((task) => <li key={task.id}>
+  //       <h3>{task.title}</h3><span className="badge">{task.state}</span>
+  //       <p>Priority: {task.priority}</p>
+  //       <p>Est. time: {task.estimatedTime}</p>
+  //     </li>);
 
-    return tasksInProgress;
-  }
+  //   return tasksBacklog;
+  // }
+
+  // function renderInProgress() {
+  //   let tasksInProgress = tasks.filter((task) => task.state.includes("in_progress"))
+  //     .map((task) => <li key={task.id}>
+  //       <h3>{task.title}</h3><span className="badge">{task.state}</span>
+  //       <p>Priority: {task.priority}</p>
+  //       <p>Est. time: {task.estimatedTime}</p>
+  //     </li>)
+
+  //   return tasksInProgress;
+  // }
 
 
-  function renderCompleted() {
-    let tasksCompleted = tasks.filter((task) => task.state.includes("completed"))
-      .map((task) => <li key={task.id}>
-        <h3>{task.title}</h3><span className="badge">{task.state}</span>
-        <p>Priority: {task.priority}</p>
-        <p>Est. time: {task.estimatedTime}</p>
-      </li>)
+  // function renderCompleted() {
+  //   let tasksCompleted = tasks.filter((task) => task.state.includes("completed"))
+  //     .map((task) => <li key={task.id}>
+  //       <h3>{task.title}</h3><span className="badge">{task.state}</span>
+  //       <p>Priority: {task.priority}</p>
+  //       <p>Est. time: {task.estimatedTime}</p>
+  //     </li>)
 
-    return tasksCompleted;
-  }
+  //   return tasksCompleted;
+  // }
 
   // html shown in page
   return (
@@ -52,16 +62,16 @@ function App() {
         <h1>Task Manager</h1>
       </header>
       <main>
-        <ul>
+        <ul id='todo'>
           <li><h2>Current Tasks</h2></li>
-          {renderBacklog()}
-          {renderInProgress()}
+          {renderListEl(tasks, "backlog")}
+          {renderListEl(tasks, "in_progress")}
         </ul>
         <br />
         <hr />
-        <ul>
+        <ul id='done'>
           <li><h2>Completed Tasks</h2></li>
-          {renderCompleted()}
+          {renderListEl(tasks, "completed")}
         </ul>
       </main>
     </>
